@@ -9,16 +9,9 @@ namespace Current_C.Views
     public interface IMainView : IView
     {
         string Username
-        {
-            get;
-            set;
-        }
+        { get;set;}
 
-        DateTime? DOB
-        {
-            get;
-            set;
-        }
+        DateTime? DOB { get;set; }
 
         event EventHandler SaveUser;
 

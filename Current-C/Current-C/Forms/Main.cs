@@ -27,17 +27,22 @@ using System.Configuration;
 using Current_C.Views;
 using Current_C.Presenters;
 using Current_C.Models;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Drive.v3.Data;
+using Google.Apis.Drive.v3;
+using System.Threading;
+using Google.Apis.Util.Store;
 
 namespace Current_C
 {
     public partial class Main : Form, IMainView
     {
         //Fields
-        private MainPresenter Presenter
-        {
-            get;
-            set;
-        }
+        private MainPresenter Presenter { get; set; }
+
+        public string Username { get; set; }
+
+        public DateTime? DOB { get; set; }
 
         //Handlers
         public event EventHandler Initialize;
@@ -45,7 +50,7 @@ namespace Current_C
 
         public Main()
         {
-            Presenter = new MainPresenter(this, "test");
+            Presenter = new MainPresenter(this);
 
             InitializeComponent();
 
@@ -69,7 +74,7 @@ namespace Current_C
 
             IFirebaseClient client = new FirebaseClient(config);
 
-            var todo = new User("Andy", new DateTime(1996, 2, 16));
+            var todo = new Models.User("Andy", new DateTime(1996, 2, 16));
 
             PushResponse response = await client.PushAsync("todos/set", todo);
             string tes1t = response.Result.name;

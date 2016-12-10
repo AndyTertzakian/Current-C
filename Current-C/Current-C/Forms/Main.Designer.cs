@@ -41,13 +41,14 @@
             this.label1.Text = "label1";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // Form1
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(783, 823);
+            this.ClientSize = new System.Drawing.Size(1989, 1173);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.MinimumSize = new System.Drawing.Size(1174, 500);
+            this.Name = "Main";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
